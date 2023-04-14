@@ -1,10 +1,34 @@
 import "./App.css";
-import Banner from "./components/top-banner/Banner";
+import Banner from "./components/Banner";
+import ResponsiveAppBar from "./components/NavBar";
+import SkillsCard from "./components/SkillsCard";
+import Container from "@mui/material/Container";
+import Contact from "./components/Contact";
+import Projects from "./components/Projects";
+import About from "./components/About";
 
 function App() {
   return (
     <div className="App">
-      <Banner />
+      {/* TODO:
+      1) Navbar
+      2) intro / about - short paragraph
+      3) skills (grid layout, Parent Card, with skills in paper)
+      4) Projects (left - right - left), add gifs to show project usage
+      5) contact - form
+    */}
+      <ResponsiveAppBar />
+      <Container>
+        <Banner />
+        {/* About me */}
+        <About />
+        {/* Skills */}
+        <SkillsCard />
+        {/* Projects */}
+        <Projects />
+        {/* Contact */}
+        <Contact />
+      </Container>
     </div>
   );
 }
