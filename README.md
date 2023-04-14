@@ -40,7 +40,7 @@ A form to reach out to me via email.
 
 #### Currently working on 👨🏽‍💻:
 
-- My online portfolio
+- My online portfolio (using Material UI)
 
 #### Other places to find me 👇🏽 :
 

@@ -6,6 +6,7 @@ import Container from "@mui/material/Container";
 import Contact from "./components/Contact";
 import Projects from "./components/Projects";
 import About from "./components/About";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -28,7 +29,9 @@ function App() {
         <Projects />
         {/* Contact */}
         <Contact />
+        {/* Footer */}
       </Container>
+      <Footer />
     </div>
   );
 }
