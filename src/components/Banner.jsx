@@ -7,7 +7,7 @@ import profileImage from "../assets/circle-profile.png";
 const Banner = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+  const isIPad = useMediaQuery(theme.breakpoints.between("sm", "md"));
 
   return (
     <Box
