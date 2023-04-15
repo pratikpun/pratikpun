@@ -10,7 +10,14 @@ const Banner = () => {
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
-    <>
+    <Box
+      sx={{
+        minHeight: 500,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+      }}
+    >
       <Box
         sx={{
           display: isMobile ? "block" : "flex",
@@ -23,23 +30,49 @@ const Banner = () => {
           my: 5,
         }}
       >
-        <Box sx={{}}>
+        <Box>
           <Avatar
             src={profileImage}
             sx={{
               alignItems: "center",
-              width: 250,
-              height: 250,
+
+              minWidth: isMobile ? 250 : 350,
+              minHeight: isMobile ? 250 : 350,
               margin: "auto",
+              border: 3,
+              borderColor: "black",
             }}
           />
         </Box>
-        <Typography variant="h5" sx={{ mt: 5 }}>
-          {" "}
-          Hello, my name is ... Pratik ...
-        </Typography>
+
+        <Box
+          sx={{
+            textAlign: "center",
+            mt: isMobile ? 3 : 0,
+          }}
+        >
+          <Typography
+            variant="h4"
+            sx={{ fontWeight: "bold", color: "#1C1F33" }}
+          >
+            👋🏽 HI, I'M{" "}
+          </Typography>
+          <Typography
+            variant="h2"
+            component="span"
+            sx={{
+              fontWeight: "bold",
+              color: "teal",
+              textDecoration: "underline",
+              lineHeight: 1.5,
+            }}
+          >
+            PRATIK
+          </Typography>
+          <Typography variant="subtitle2">* SOFTWARE DEVELOPER * </Typography>
+        </Box>
       </Box>
-    </>
+    </Box>
   );
 };
 

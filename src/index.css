@@ -3,4 +3,8 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: "roboto", "Helvetica Neue", Helvetica, Arial;
+  background-image: linear-gradient(
+    rgba(0, 0, 230, 0.05),
+    rgba(0, 0, 230, 0.25)
+  );
 }
