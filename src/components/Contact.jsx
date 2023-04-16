@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Input,
   TextField,
   Typography,
@@ -29,16 +30,12 @@ const Contact = () => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
+            // border: 1,
           }}
         >
-          <Input
-            id="my-input"
-            aria-describedby="my-helper-text"
-            label="Email"
-          />
-
           <TextField
             type="text"
+            // color="primary"
             variant="outlined"
             label="Your name . . ."
             sx={{
@@ -62,6 +59,23 @@ const Contact = () => {
             multiline
             rows={5}
           />
+          <Box
+            sx={{
+              width: isMobile ? "70%" : "20%",
+              mb: 4,
+            }}
+          >
+            <Button
+              variant="contained"
+              sx={{
+                width: "100%",
+                borderRadius: 5,
+                backgroundColor: "#1C1F33",
+              }}
+            >
+              Submit
+            </Button>
+          </Box>
         </Box>
       </form>
     </div>
