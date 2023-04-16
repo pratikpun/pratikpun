@@ -8,13 +8,21 @@ const Footer = () => {
     <footer>
       <Box
         sx={{
-          height: 60,
+          height: "30%",
+          mt: 3,
+          p: 2,
           backgroundColor: "#1C1F33",
           color: "white",
-          textAlign: "center",
+          //   textAlign: "center",
+          //   marginY: "auto",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
         <Typography>&copy; Pratik Pun {date}</Typography>
+        <Typography>Developed with Material UI</Typography>
       </Box>
     </footer>
   );
