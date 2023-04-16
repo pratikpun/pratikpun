@@ -1,7 +1,5 @@
-import { useState } from "react";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
-// import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
@@ -103,10 +101,10 @@ export default function SkillsCard() {
           variant="h4"
           sx={{
             fontWeight: "bold",
-            textAlign: isMobile || isIPad ? "center " : "none",
+            textAlign: "center",
           }}
         >
-          TECHNICAL SKILLS
+          TECH STACKS
         </Typography>
       </Box>
       <Grid container spacing={2}>
@@ -114,9 +112,10 @@ export default function SkillsCard() {
           <Paper
             elevation={2}
             sx={{
-              backgroundImage: isMobile
-                ? "linear-gradient(rgba(0,200,200,0.20), rgba(0,150,150,0.15))"
-                : "linear-gradient(to right, rgba(0,200,200,0.20), rgba(0,150,150,0.15))",
+              backgroundImage:
+                isMobile || isIPad
+                  ? "linear-gradient(rgba(0,200,200,0.20), rgba(0,150,150,0.15))"
+                  : "linear-gradient(to right, rgba(0,200,200,0.20), rgba(0,150,150,0.15))",
             }}
           >
             {FrontEndCard}
@@ -126,9 +125,10 @@ export default function SkillsCard() {
           <Paper
             elevation={2}
             sx={{
-              backgroundImage: isMobile
-                ? "linear-gradient(rgba(0,200,200,0.15), rgba(0,150,150,0.1))"
-                : "linear-gradient(to right, rgba(0,150,150,0.15), rgba(0,0,0,0.1))",
+              backgroundImage:
+                isMobile || isIPad
+                  ? "linear-gradient(rgba(0,200,200,0.15), rgba(0,150,150,0.1))"
+                  : "linear-gradient(to right, rgba(0,150,150,0.15), rgba(0,0,0,0.1))",
             }}
           >
             {BackEndCard}
