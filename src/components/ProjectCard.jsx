@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { Typography } from "@mui/material";
-// import image from "../assets/giphy.gif";
+import image from "../assets/giphy.gif";
 
 const ProjectCard = () => {
   //   const theme = useTheme();

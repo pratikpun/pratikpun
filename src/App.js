@@ -7,6 +7,7 @@ import Contact from "./components/Contact";
 import Projects from "./components/Projects";
 import About from "./components/About";
 import Footer from "./components/Footer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
@@ -19,6 +20,14 @@ function App() {
       5) contact - form
     */}
       <ResponsiveAppBar />
+      {/* <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Banner />} />
+          <Route path="/" element={<About />} />
+          <Route path="/" element={<Projects />} />
+          <Route parth="/" element={<Contact />} />
+        </Routes>
+      </BrowserRouter> */}
       <Container>
         <Banner />
         {/* About me */}
@@ -29,7 +38,6 @@ function App() {
         <Projects />
         {/* Contact */}
         <Contact />
-        {/* Footer */}
       </Container>
       <Footer />
     </div>

@@ -1,9 +1,7 @@
 import {
   Alert,
-  AlertTitle,
   Box,
   Button,
-  Input,
   TextField,
   Typography,
   useMediaQuery,
@@ -14,8 +12,10 @@ import { useState } from "react";
 const Contact = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const [validateName, setValidateName] = useState(true);
-  const [validateEmail, setValidateEmail] = useState(true);
+  const [validateName, setValidateName] = useState(false);
+  const [isTypingName, setIsTypingName] = useState(false);
+  const [isTypingEmail, setIsTypingEmail] = useState(false);
+  const [validateEmail, setValidateEmail] = useState(false);
   const [contactObject, setContactObject] = useState({
     name: "",
     email: "",
@@ -25,6 +25,22 @@ const Contact = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    if (name === "name") {
+      if (value !== "") {
+        setIsTypingName(true);
+      } else {
+        setIsTypingName(false);
+      }
+    }
+
+    if (name === "email") {
+      if (value !== "") {
+        setIsTypingEmail(true);
+      } else {
+        setIsTypingEmail(false);
+      }
+    }
+
     setContactObject((previousInfo) => {
       return { ...previousInfo, [name]: value };
     });
@@ -33,11 +49,14 @@ const Contact = () => {
     e.preventDefault();
     setSubmit(true);
 
+    if (contactObject.name === "") setValidateName(true);
+    if (contactObject.email === "") setValidateEmail(true);
+
     console.log(`submitted, ${JSON.stringify(contactObject)}`);
   };
   return (
-    <div>
-      <Box sx={{ textAlign: "center" }}>
+    <>
+      <Box id="contact" sx={{ textAlign: "center" }}>
         <Typography
           variant="h4"
           sx={{
@@ -52,25 +71,12 @@ const Contact = () => {
           sx={{
             // border: 1,
             borderColor: "red",
-
-            // display: "flex",
-            // flexDirection: "column",
-            // justifyContent: "center",
-            // alignItems: "center",
-            // border: 1,
           }}
         >
           <Box
             sx={{
-              //   display: "flex",
-              //   flexDirection: "column",
-              //   justifyContent: "center",
-              //   alignItems: "center",
-              //   border: 1,
               width: isMobile ? "90%" : 600,
               margin: "auto",
-              //   alignContent: "center",
-              //   width: "100%",
             }}
           >
             <TextField
@@ -79,7 +85,6 @@ const Contact = () => {
               autoComplete="false"
               value={contactObject.name}
               onChange={handleChange}
-              // color="primary"
               variant="outlined"
               label="Your name . . ."
               sx={{
@@ -87,9 +92,9 @@ const Contact = () => {
                 mt: 2,
               }}
             />
-            {validateName && (
+            {validateName && !isTypingName && (
               <Alert severity="error" sx={{ mt: 1 }}>
-                Please enter your name!
+                Please enter your name
               </Alert>
             )}
 
@@ -102,9 +107,9 @@ const Contact = () => {
               label="Your Email . . ."
               sx={{ mt: 2, width: "100%" }}
             />
-            {validateName && (
+            {validateEmail && !isTypingEmail && (
               <Alert severity="error" sx={{ mt: 1 }}>
-                Please enter a valid email!
+                Please enter your email
               </Alert>
             )}
 
@@ -122,8 +127,6 @@ const Contact = () => {
             <Box
               sx={{
                 width: isMobile ? "70%" : "20%",
-                // mb: 4,
-                // border: 1,
                 marginX: isMobile ? "auto" : 0,
               }}
             >
@@ -142,7 +145,7 @@ const Contact = () => {
           </Box>
         </Box>
       </form>
-    </div>
+    </>
   );
 };
 

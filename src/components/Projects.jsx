@@ -17,7 +17,7 @@ const Projects = () => {
   const isIPad = useMediaQuery(theme.breakpoints.between("sm", "md"));
 
   return (
-    <Box>
+    <Box id="projects">
       <Box sx={{ textAlign: isMobile || isIPad ? "center" : "none" }}>
         <Typography variant="h4" sx={{ fontWeight: "bold" }}>
           PROJECTS
