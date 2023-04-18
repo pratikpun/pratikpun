@@ -25,7 +25,10 @@ const ProjectCard = () => {
               Peep n Chill is a full stack web application. It is a blog-type
               inspired project, that allows users to browse through posts made
               by other users. Users are only allowed to
-              <GitHubIcon sx={{ "&:hover": { transform: "scale(1.25)" } }} />
+              <Button>
+                {" "}
+                <GitHubIcon sx={{ "&:hover": { transform: "scale(1.25)" } }} />
+              </Button>
               <Button size="small">More</Button>
             </Typography>
           </Grid>

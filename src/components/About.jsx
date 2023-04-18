@@ -26,15 +26,17 @@ const About = () => {
         elevation={4}
       >
         <Typography variant="body1">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut tempora
-          ipsa laborum dolor consequuntur fugiat consectetur, rem quaerat, sequi
-          et accusantium dignissimos repudiandae quia odio porro totam! Debitis
-          incidunt minus voluptatum, pariatur alias, dolorum magnam commodi cum
-          ducimus rerum vel! Sequi deleniti, maxime temporibus debitis eius quia
-          consequatur excepturi illo? <br /> Lorem, ipsum dolor sit amet
-          consectetur adipisicing elit. Dolorem commodi amet, incidunt est quam
-          modi cupiditate porro accusantium tempora molestias quia ad non fuga
-          sunt. Nostrum iste distinctio quas nesciunt.
+          Hello, I'm Pratik! A recent computer science graduate from Swansea
+          University, Wales. I enjoy developing new web applications, for both
+          front and back with a mobile first approach, as I aim to make my
+          projects responsive in all devices, by doing so it enforces me to
+          research further and discover new techniques about how my code is
+          presented in desktop and mobile. Currently I am heavily exposed to
+          MERN stack when developing applications. As a software engineer, my
+          mentality is to always learn from others as it allows me to learn new
+          ways of writing cleaner and efficient code. Aside from the tech world,
+          I play 11-a-side football weekly to stay active and thoroughly enjoy
+          watching mystery crime documentaries.
         </Typography>
       </Paper>
     </Box>

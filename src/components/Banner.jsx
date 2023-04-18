@@ -11,7 +11,8 @@ const Banner = () => {
   return (
     <Box
       sx={{
-        minHeight: 500,
+        mt: 5,
+        minHeight: 600,
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -48,6 +49,7 @@ const Banner = () => {
           sx={{
             textAlign: "center",
             mt: isMobile ? 3 : 0,
+            ml: isMobile ? 0 : 5,
           }}
         >
           <Typography
@@ -68,7 +70,15 @@ const Banner = () => {
           >
             PRATIK
           </Typography>
-          <Typography variant="subtitle2">* SOFTWARE DEVELOPER * </Typography>
+
+          <Box sx={{ mt: 2 }}>
+            <Typography variant="subtitle2">
+              I'm a full stack software engineer and Computer Science graduate
+              who has keen interest in developing mobile and web based
+              applications with codes that are clean and readable to anyone.
+              Currently based in Reading, UK.
+            </Typography>
+          </Box>
         </Box>
       </Box>
     </Box>

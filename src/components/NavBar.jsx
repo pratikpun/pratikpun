@@ -7,7 +7,6 @@ import { Link, useMediaQuery, useTheme } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
-import About from "./About";
 
 export default function ResponsiveAppBar() {
   const theme = useTheme();
@@ -16,12 +15,15 @@ export default function ResponsiveAppBar() {
   const [openMobileMenu, setOpeneMobileMenu] = useState(false);
 
   const handleMobileMenu = () => {
-    console.log("clicked");
+    // console.log("clicked");
     setOpeneMobileMenu(!openMobileMenu);
   };
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: "#1C1F33", px: 1 }}>
+      <AppBar
+        position="fixed"
+        sx={{ backgroundColor: "#1C1F33", px: 1, top: 0 }}
+      >
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             PP
@@ -49,10 +51,12 @@ export default function ResponsiveAppBar() {
         {openMobileMenu && (
           <Box
             sx={{
+              height: 200,
               display: "flex",
-              justifyContent: "center",
+              justifyContent: "space-around",
               alignItems: "center",
               flexDirection: "column",
+              borderTop: 1,
             }}
           >
             <Link
