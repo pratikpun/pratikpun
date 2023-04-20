@@ -19,15 +19,9 @@ function App() {
       4) Projects (left - right - left), add gifs to show project usage
       5) contact - form
     */}
+      {/* <BrowserRouter> */}
       <ResponsiveAppBar />
-      {/* <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Banner />} />
-          <Route path="/" element={<About />} />
-          <Route path="/" element={<Projects />} />
-          <Route parth="/" element={<Contact />} />
-        </Routes>
-      </BrowserRouter> */}
+
       <Container>
         <Banner />
         {/* About me */}
@@ -36,10 +30,12 @@ function App() {
         <SkillsCard />
         {/* Projects */}
         <Projects />
+
         {/* Contact */}
         <Contact />
       </Container>
       <Footer />
+      {/* </BrowserRouter> */}
     </div>
   );
 }
