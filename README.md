@@ -2,7 +2,9 @@
 
 Welcome, you've found my page!
 
-An updated version of the [previous static website](https://pratikpun.github.io).
+An [updated version](https://pratikpun.co.uk/) of the [previous static website](https://pratikpun.github.io).
+
+_If updated link is not working, https://pratikpun.co.uk/_
 
 #### This version will incorporate new libraries and functionalities such as:
 
