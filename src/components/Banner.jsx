@@ -1,4 +1,8 @@
-import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Link, Typography, useMediaQuery, useTheme } from "@mui/material";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import EmailIcon from "@mui/icons-material/Email";
+
 import Avatar from "@mui/material/Avatar";
 import React from "react";
 
@@ -73,11 +77,37 @@ const Banner = () => {
 
           <Box sx={{ mt: 2 }}>
             <Typography variant="subtitle2">
-              I'm a full stack software engineer and Computer Science graduate
-              who has keen interest in developing mobile and web based
-              applications with codes that are clean and readable to anyone.
-              Currently based in Reading, UK.
+              Full stack software engineer and Computer Science graduate who has
+              keen interest in developing web based applications with codes that
+              are clean and readable to anyone. Currently based in Reading, UK.
             </Typography>
+          </Box>
+          <Box sx={{ mt: 2 }}>
+            <Link
+              href="https://github.com/pratikpun"
+              target="_blank"
+              sx={{ mx: 2 }}
+            >
+              <GitHubIcon
+                sx={{
+                  "&:hover": { transform: "scale(1.25)", color: "white" },
+                  fontSize: 34,
+                  color: "black",
+                }}
+              />
+            </Link>
+            <Link
+              href="https://www.linkedin.com/in/pratik-pun-605b101a2/"
+              target="_blank"
+            >
+              <LinkedInIcon
+                sx={{
+                  "&:hover": { transform: "scale(1.25)", color: "white" },
+                  fontSize: 36,
+                  color: "black",
+                }}
+              />
+            </Link>
           </Box>
         </Box>
       </Box>

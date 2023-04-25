@@ -11,12 +11,15 @@ import { useState } from "react";
 export default function ResponsiveAppBar() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
   const [openMobileMenu, setOpeneMobileMenu] = useState(false);
 
   const handleMobileMenu = () => {
     // console.log("clicked");
     setOpeneMobileMenu(!openMobileMenu);
+  };
+
+  const handleCVButton = () => {
+    window.open("PRATIKPUN.pdf");
   };
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -45,6 +48,9 @@ export default function ResponsiveAppBar() {
               <Button color="inherit">ABOUT</Button>
               <Button color="inherit">PROJECTS</Button>
               <Button color="inherit">CONTACT</Button>
+              <Button color="inherit" onClick={handleCVButton}>
+                CV
+              </Button>
             </>
           )}
         </Toolbar>
@@ -90,6 +96,15 @@ export default function ResponsiveAppBar() {
               color="inherit"
             >
               CONTACT
+            </Link>
+            <Link
+              href="#contact"
+              sx={{ fontSize: 16 }}
+              underline="none"
+              color="inherit"
+              onClick={handleCVButton}
+            >
+              CV
             </Link>
           </Box>
         )}

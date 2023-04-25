@@ -4,7 +4,7 @@ body {
   box-sizing: border-box;
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial;
   background-image: linear-gradient(
-    rgba(0, 0, 230, 0.5),
+    rgba(0, 0, 230, 0.4),
     /* rgba(0, 0, 230, 0.05), */ /* rgba(0, 0, 230, 0.25) */
       rgba(0, 0, 230, 0.15)
   );
