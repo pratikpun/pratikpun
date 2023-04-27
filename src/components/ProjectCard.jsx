@@ -3,11 +3,11 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { Link, Typography, useMediaQuery, useTheme } from "@mui/material";
-import image from "../assets/giphy.gif";
 
 const ProjectCard = (props) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isIPad = useMediaQuery(theme.breakpoints.between("sm", "lg"));
   return (
     <>
       <Box
@@ -28,12 +28,18 @@ const ProjectCard = (props) => {
             </Typography>
           </Grid>
           <Grid item sm={12} md={5}>
-            <Box sx={{ border: 2 }}>
+            <Box>
               <img
                 src={props.imageUrl}
                 alt={props.imageALT}
                 // className="img"
-                style={{ width: isMobile ? 200 : 400, height: "auto" }}
+                style={{
+                  width: isIPad || isMobile ? "100%" : 500,
+                  marginLeft: isIPad || isMobile ? 0 : 50,
+
+                  height: "auto",
+                  marginTop: isMobile ? 15 : "auto",
+                }}
               />
               {/* IMAGE */}
             </Box>

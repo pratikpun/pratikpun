@@ -3,8 +3,8 @@
     {
       "id": 1,
       "title": "Peep n Chill",
-      "description": "Peep n Chill is a full stack web based appication. It is a blog type inspired project, that allows users to browse through posts created by other users. Users are only allowed to post if they are a registered user and must log in.",
-      "imageUrl": "/images/giphy.gif",
+      "description": "Peep n Chill is a full stack web based appication. It is a blog type inspired project, that allows users to browse through posts created by other users. Users are only allowed to post if they are a registered user and must log in. At the moment, it is only available to access from localhost but it has all the data stored in the cloud. Front-end has been deployed already but will not display any data, as I'm trying to deploy the back-end as a monorepo with the front-end. ",
+      "imageUrl": "/images/peepnchill.png",
       "imageALT": "Peep n Chill demo",
       "github": "https://github.com/pratikpun/Peep-n-Chill-Demo"
     },
