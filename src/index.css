@@ -3,11 +3,14 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     rgba(0, 0, 230, 0.4),
-    /* rgba(0, 0, 230, 0.05), */ /* rgba(0, 0, 230, 0.25) */
+    rgba(0, 0, 230, 0.05), */ /* rgba(0, 0, 230, 0.25)
       rgba(0, 0, 230, 0.15)
   );
+  */
+  background-color: #0b0c10;
+  color: #c5c6c7;
   animation: fadeInAnimation ease 5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;

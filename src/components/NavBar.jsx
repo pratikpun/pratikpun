@@ -25,7 +25,7 @@ export default function ResponsiveAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="fixed"
-        sx={{ backgroundColor: "#1C1F33", px: 1, top: 0 }}
+        sx={{ backgroundColor: "#0b0c10", px: 1, top: 0, color: "#66FCF1" }}
       >
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>

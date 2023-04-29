@@ -18,6 +18,7 @@ const About = () => {
         sx={{
           backgroundColor: "transparent",
           // #DADAF3
+          color: "#C5C6C7",
           padding: 2,
           border: "rounded",
           mb: 5,

@@ -44,7 +44,7 @@ const Banner = () => {
               minHeight: isMobile ? 250 : 350,
               margin: "auto",
               border: 3,
-              borderColor: "black",
+              borderColor: "#45A29E",
             }}
           />
         </Box>
@@ -58,7 +58,7 @@ const Banner = () => {
         >
           <Typography
             variant="h4"
-            sx={{ fontWeight: "bold", color: "#1C1F33" }}
+            sx={{ fontWeight: "bold", color: "#45A29E" }}
           >
             👋🏽 HI, I'M{" "}
           </Typography>
@@ -67,7 +67,7 @@ const Banner = () => {
             component="span"
             sx={{
               fontWeight: "bold",
-              color: "teal",
+              color: "#66FCF1",
               textDecoration: "underline",
               lineHeight: 1.5,
             }}

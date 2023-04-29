@@ -8,6 +8,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { useState } from "react";
+import "./styles.css";
 
 const Contact = () => {
   const theme = useTheme();
@@ -22,9 +23,14 @@ const Contact = () => {
     message: "",
   });
   const [submit, setSubmit] = useState(false);
+  const emailRegEx =
+    /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
 
+  const validateEmailREGEXP = emailRegEx.test(contactObject.email);
+  // Handle changes in input fields
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     if (name === "name") {
       if (value !== "") {
         setIsTypingName(true);
@@ -32,7 +38,6 @@ const Contact = () => {
         setIsTypingName(false);
       }
     }
-
     if (name === "email") {
       if (value !== "") {
         setIsTypingEmail(true);
@@ -45,14 +50,23 @@ const Contact = () => {
       return { ...previousInfo, [name]: value };
     });
   };
+
+  // Handle submit button
+  // validate all input fields
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmit(true);
+    setSubmit(false);
+    // if empty, set validation error to true
+    if (contactObject.name !== "") setValidateName(true);
+    if (contactObject.email !== "") setValidateEmail(true);
 
-    if (contactObject.name === "") setValidateName(true);
-    if (contactObject.email === "") setValidateEmail(true);
-
-    console.log(`submitted, ${JSON.stringify(contactObject)}`);
+    //  Only submit if name and email is validated
+    // if (validateEmailREGEXP && validateName) {
+    if (validateEmail && validateName) {
+      console.log(`submitted, ${JSON.stringify(contactObject)}`);
+    } else {
+      console.log(`Error, could not submit`);
+    }
   };
   return (
     <>
@@ -69,8 +83,8 @@ const Contact = () => {
       <form onSubmit={handleSubmit}>
         <Box
           sx={{
-            // border: 1,
-            borderColor: "red",
+            border: 1,
+            borderColor: "#45A29E",
           }}
         >
           <Box
@@ -87,9 +101,28 @@ const Contact = () => {
               onChange={handleChange}
               variant="outlined"
               label="Your name . . ."
+              className="input-field"
               sx={{
                 width: "100%",
                 mt: 2,
+                color: "white",
+              }}
+              InputLabelProps={{
+                classes: {
+                  root: "inputLabel",
+                  focused: "inputLabel",
+                },
+              }}
+              InputProps={{
+                // sx: {
+                //   color: "white",
+                //   paddingLeft: "15px",
+                //   fontSize: "20px",
+                //   color: "white",
+                // },
+                classes: {
+                  notchedOutline: "input-border",
+                },
               }}
             />
             {validateName && !isTypingName && (
@@ -99,7 +132,7 @@ const Contact = () => {
             )}
 
             <TextField
-              type="email"
+              type="text"
               name="email"
               value={contactObject.email}
               onChange={handleChange}
@@ -107,6 +140,13 @@ const Contact = () => {
               label="Your Email . . ."
               sx={{ mt: 2, width: "100%" }}
             />
+            {/* {validateEmailREGEXP && !isTypingEmail ? (
+              <></>
+            ) : (
+              <Alert severity="error" sx={{ mt: 1 }}>
+                Please enter a valid email!
+              </Alert>
+            )} */}
             {validateEmail && !isTypingEmail && (
               <Alert severity="error" sx={{ mt: 1 }}>
                 Please enter your email
