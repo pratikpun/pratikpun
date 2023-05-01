@@ -81,12 +81,7 @@ const Contact = () => {
         </Typography>
       </Box>
       <form onSubmit={handleSubmit}>
-        <Box
-          sx={{
-            border: 1,
-            borderColor: "#45A29E",
-          }}
-        >
+        <Box>
           <Box
             sx={{
               width: isMobile ? "90%" : 600,
@@ -100,29 +95,10 @@ const Contact = () => {
               value={contactObject.name}
               onChange={handleChange}
               variant="outlined"
-              label="Your name . . ."
-              className="input-field"
+              label="Name "
               sx={{
                 width: "100%",
                 mt: 2,
-                color: "white",
-              }}
-              InputLabelProps={{
-                classes: {
-                  root: "inputLabel",
-                  focused: "inputLabel",
-                },
-              }}
-              InputProps={{
-                // sx: {
-                //   color: "white",
-                //   paddingLeft: "15px",
-                //   fontSize: "20px",
-                //   color: "white",
-                // },
-                classes: {
-                  notchedOutline: "input-border",
-                },
               }}
             />
             {validateName && !isTypingName && (
@@ -137,7 +113,7 @@ const Contact = () => {
               value={contactObject.email}
               onChange={handleChange}
               variant="outlined"
-              label="Your Email . . ."
+              label="Email"
               sx={{ mt: 2, width: "100%" }}
             />
             {/* {validateEmailREGEXP && !isTypingEmail ? (
@@ -172,11 +148,12 @@ const Contact = () => {
             >
               <Button
                 variant="contained"
+                // color="primary"
                 type="submit"
                 sx={{
                   width: "100%",
-                  borderRadius: 5,
-                  backgroundColor: "#1C1F33",
+                  //   borderRadius: 5,
+                  //   backgroundColor: "#1C1F33",
                 }}
               >
                 Submit

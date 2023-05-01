@@ -58,16 +58,17 @@ const Banner = () => {
         >
           <Typography
             variant="h4"
-            sx={{ fontWeight: "bold", color: "#45A29E" }}
+            color="secondary"
+            sx={{ fontWeight: "bold" }}
           >
             👋🏽 HI, I'M{" "}
           </Typography>
           <Typography
             variant="h2"
             component="span"
+            color="primary"
             sx={{
               fontWeight: "bold",
-              color: "#66FCF1",
               textDecoration: "underline",
               lineHeight: 1.5,
             }}
