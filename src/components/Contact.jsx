@@ -8,7 +8,6 @@ import {
   useTheme,
 } from "@mui/material";
 import { useState } from "react";
-import "./styles.css";
 
 const Contact = () => {
   const theme = useTheme();
