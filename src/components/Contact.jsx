@@ -95,7 +95,7 @@ const Contact = () => {
           "service_1uqfou5",
           "template_7mid9ow",
           form.current,
-          "MuJmdCPzEaFFQG8vT"
+          "SAmftEg1acbfW7zAc"
         )
         // .sendForm(serviceID, templateID, form.current, publicKey)
         .then(
