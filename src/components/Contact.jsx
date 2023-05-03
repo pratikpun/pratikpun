@@ -2,70 +2,123 @@ import {
   Alert,
   Box,
   Button,
+  Snackbar,
   TextField,
   Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
+  const form = useRef();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const [validateName, setValidateName] = useState(false);
-  const [isTypingName, setIsTypingName] = useState(false);
-  const [isTypingEmail, setIsTypingEmail] = useState(false);
-  const [validateEmail, setValidateEmail] = useState(false);
+  const [isNameError, setNameError] = useState(false);
+  const [isEmailError, setEmailError] = useState(false);
   const [contactObject, setContactObject] = useState({
     name: "",
     email: "",
     message: "",
   });
   const [submit, setSubmit] = useState(false);
+  const [snackbarState, setSnackbarState] = useState({
+    open: false,
+    vertical: "top",
+    horizontal: "center",
+  });
+
   const emailRegEx =
     /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
 
   const validateEmailREGEXP = emailRegEx.test(contactObject.email);
+
   // Handle changes in input fields
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     if (name === "name") {
       if (value !== "") {
-        setIsTypingName(true);
+        setNameError(false);
       } else {
-        setIsTypingName(false);
+        setNameError(true);
       }
     }
     if (name === "email") {
       if (value !== "") {
-        setIsTypingEmail(true);
+        setEmailError(false);
       } else {
-        setIsTypingEmail(false);
+        setEmailError(true);
       }
     }
-
     setContactObject((previousInfo) => {
       return { ...previousInfo, [name]: value };
     });
   };
 
-  // Handle submit button
-  // validate all input fields
+  // handling SNACKBAR
+  const { vertical, horizontal, open } = snackbarState;
+  const handleClick = (newState) => () => {
+    setSnackbarState({ open: true, ...newState });
+  };
+  const handleClose = () => {
+    setSnackbarState({ ...snackbarState, open: false });
+  };
+
+  // Valid name check
+  const isValidName = () => {
+    return contactObject.name !== "" && contactObject.name.length > 1;
+  };
+
+  // valid email check
+  const isValidEmail = () => {
+    return contactObject.email !== "" && validateEmailREGEXP;
+  };
+
+  // Handle submit form
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmit(false);
-    // if empty, set validation error to true
-    if (contactObject.name !== "") setValidateName(true);
-    if (contactObject.email !== "") setValidateEmail(true);
 
-    //  Only submit if name and email is validated
-    // if (validateEmailREGEXP && validateName) {
-    if (validateEmail && validateName) {
-      console.log(`submitted, ${JSON.stringify(contactObject)}`);
-    } else {
-      console.log(`Error, could not submit`);
+    if (!isValidName()) {
+      setNameError(true);
     }
+    if (!isValidEmail()) {
+      setEmailError(true);
+    }
+
+    if (isValidEmail() && isValidName()) {
+      const serviceID = process.env.REACT_APP_EMAIL_SERVICE_ID;
+      const templateID = process.env.REACT_APP_EMAIL_TEMPLATE_ID;
+      const publicKey = process.env.REACT_APP_EMAIL_PUBLIC_KEY;
+      emailjs
+        .sendForm(
+          "service_1uqfou5",
+          "template_7mid9o",
+          form.current,
+          "MuJmdCPzEaFFQG8vT"
+        )
+        .then(
+          (result) => {
+            if (result.text === "OK") {
+              console.log(contactObject);
+              console.log("Message sent successfully!");
+              console.log(result.text);
+              setSubmit(true);
+              console.log(`submitted, ${JSON.stringify(contactObject)}`);
+              setContactObject({ name: "", email: "", message: "" });
+            }
+          },
+          (error) => {
+            console.log("Failed to send message...");
+            console.log(error.text);
+          }
+        );
+    } else {
+      setSubmit(false);
+      console.log("Error, did not submit. . .");
+    }
+
+    // if my validation works then send message using email js.
   };
   return (
     <>
@@ -79,7 +132,7 @@ const Contact = () => {
           CONTACT
         </Typography>
       </Box>
-      <form onSubmit={handleSubmit}>
+      <form ref={form} onSubmit={handleSubmit}>
         <Box>
           <Box
             sx={{
@@ -100,11 +153,19 @@ const Contact = () => {
                 mt: 2,
               }}
             />
-            {validateName && !isTypingName && (
+
+            {isNameError && (
               <Alert severity="error" sx={{ mt: 1 }}>
                 Please enter your name
               </Alert>
             )}
+            {/* {isValidName === "false" && !isTypingName ? (
+              <Alert severity="error" sx={{ mt: 1 }}>
+                Please enter your name
+              </Alert>
+            ) : (
+              <></>
+            )} */}
 
             <TextField
               type="text"
@@ -115,14 +176,8 @@ const Contact = () => {
               label="Email"
               sx={{ mt: 2, width: "100%" }}
             />
-            {/* {validateEmailREGEXP && !isTypingEmail ? (
-              <></>
-            ) : (
-              <Alert severity="error" sx={{ mt: 1 }}>
-                Please enter a valid email!
-              </Alert>
-            )} */}
-            {validateEmail && !isTypingEmail && (
+
+            {isEmailError && (
               <Alert severity="error" sx={{ mt: 1 }}>
                 Please enter your email
               </Alert>
@@ -147,16 +202,33 @@ const Contact = () => {
             >
               <Button
                 variant="contained"
-                // color="primary"
                 type="submit"
+                onClick={handleClick({
+                  vertical: "top",
+                  horizontal: "center",
+                })}
                 sx={{
                   width: "100%",
-                  //   borderRadius: 5,
-                  //   backgroundColor: "#1C1F33",
                 }}
               >
                 Submit
               </Button>
+              {submit && (
+                <Snackbar
+                  anchorOrigin={{ vertical, horizontal }}
+                  open={open}
+                  autoHideDuration={2000}
+                  onClose={handleClose}
+                >
+                  <Alert
+                    onClose={handleClose}
+                    severity="success"
+                    sx={{ width: "100%" }}
+                  >
+                    Message sent successfully!
+                  </Alert>
+                </Snackbar>
+              )}
             </Box>
           </Box>
         </Box>
