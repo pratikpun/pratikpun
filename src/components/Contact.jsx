@@ -90,22 +90,30 @@ const Contact = () => {
       const serviceID = `${process.env.REACT_APP_EMAIL_SERVICE_ID}`;
       const templateID = `${process.env.REACT_APP_EMAIL_TEMPLATE_ID}`;
       const publicKey = `${process.env.REACT_APP_EMAIL_PUBLIC_KEY}`;
-      emailjs.sendForm(serviceID, templateID, form.current, publicKey).then(
-        (result) => {
-          if (result.text === "OK") {
-            console.log(contactObject);
-            console.log("Message sent successfully!");
-            console.log(result.text);
-            setSubmit(true);
-            console.log(`submitted, ${JSON.stringify(contactObject)}`);
-            setContactObject({ name: "", email: "", message: "" });
+      emailjs
+        .sendForm(
+          "service_1uqfou5",
+          "template_7mid9ow",
+          form.current,
+          "MuJmdCPzEaFFQG8vT"
+        )
+        // .sendForm(serviceID, templateID, form.current, publicKey)
+        .then(
+          (result) => {
+            if (result.text === "OK") {
+              console.log(contactObject);
+              console.log("Message sent successfully!");
+              console.log(result.text);
+              setSubmit(true);
+              console.log(`submitted, ${JSON.stringify(contactObject)}`);
+              setContactObject({ name: "", email: "", message: "" });
+            }
+          },
+          (error) => {
+            console.log("Failed to send message...");
+            console.log(error.text);
           }
-        },
-        (error) => {
-          console.log("Failed to send message...");
-          console.log(error.text);
-        }
-      );
+        );
     } else {
       setSubmit(false);
       console.log("Error, did not submit. . .");
