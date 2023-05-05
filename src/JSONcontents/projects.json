@@ -12,17 +12,9 @@
       "id": 2,
       "title": "News Summary API",
       "description": "News summary is a front-end web based appication. It gathers live news using the guardian API , that allows users to browse through posts created by other users. Users are only allowed to post if they are a registered user and must log in.",
-      "imageUrl": "/images/giphy.gif",
+      "imageUrl": "/images/news-summary.png",
       "imageALT": "Peep n Chill demo",
-      "github": "https://github.com/pratikpun/Peep-n-Chill-Demo"
-    },
-    {
-      "id": 3,
-      "title": "Another project",
-      "description": "Peep n Chill is a full stack web based appication. It is a blog type inspired project, that allows users to browse through posts created by other users. Users are only allowed to post if they are a registered user and must log in.",
-      "imageUrl": "/images/giphy.gif",
-      "imageALT": "Peep n Chill demo",
-      "github": "https://github.com/pratikpun/Peep-n-Chill-Demo"
+      "github": "https://github.com/pratikpun/Guardian-news-API"
     }
   ]
 }

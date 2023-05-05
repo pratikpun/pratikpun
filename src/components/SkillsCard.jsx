@@ -4,11 +4,15 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { useMediaQuery, useTheme } from "@mui/material";
+import data from "../JSONcontents/skills.json";
 
 export default function SkillsCard() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isIPad = useMediaQuery(theme.breakpoints.between("sm", "md"));
+  const skills = data.skills;
+  console.log(skills);
+
   const FrontEndCard = (
     <>
       <CardContent sx={{ minHeight: 250 }}>
@@ -176,6 +180,8 @@ export default function SkillsCard() {
                 isMobile || isIPad
                   ? "linear-gradient(rgba(0,200,200,0.17), rgba(0,150,150,0.15))"
                   : "linear-gradient(to right, rgba(0,150,150,0.17), rgba(0,150,150,0.15))",
+              // backgroundColor: "transparent",
+              // border: "1px solid green",
             }}
           >
             {BackEndCard}

@@ -1,0 +1,7 @@
+{
+  "skills": {
+    "frontEnd": ["HTML", "CSS"],
+    "backEnd": ["Node.js", "MongoDB"],
+    "others": ["Git", "Github", "Trello"]
+  }
+}

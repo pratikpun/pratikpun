@@ -12,6 +12,9 @@ const theme = createTheme({
     success: {
       main: green[400],
     },
+    normalText: {
+      main: "#C5C6C7",
+    },
   },
   components: {
     MuiButton: {

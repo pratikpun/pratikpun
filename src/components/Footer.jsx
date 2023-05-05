@@ -11,7 +11,7 @@ const Footer = () => {
           height: "30%",
           mt: 3,
           p: 2,
-          backgroundColor: "#1C1F33",
+          backgroundColor: "#0b0c10",
           color: "white",
           //   textAlign: "center",
           //   marginY: "auto",

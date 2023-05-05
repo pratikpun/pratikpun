@@ -77,7 +77,7 @@ const Banner = () => {
           </Typography>
 
           <Box sx={{ mt: 2 }}>
-            <Typography variant="subtitle2">
+            <Typography variant="subtitle2" textAlign="left">
               Full stack software engineer and Computer Science graduate who has
               keen interest in developing web based applications with codes that
               are clean and readable to anyone. Currently based in Reading, UK.

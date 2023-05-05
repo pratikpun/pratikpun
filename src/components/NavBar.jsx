@@ -24,7 +24,7 @@ export default function ResponsiveAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
-        position="fixed"
+        position="sticky"
         sx={{ backgroundColor: "#0b0c10", px: 1, top: 0, color: "#66FCF1" }}
       >
         <Toolbar>
@@ -43,15 +43,49 @@ export default function ResponsiveAppBar() {
               <MenuIcon />
             </IconButton>
           ) : (
-            <>
-              <Button color="inherit">HOME</Button>
-              <Button color="inherit">ABOUT</Button>
-              <Button color="inherit">PROJECTS</Button>
-              <Button color="inherit">CONTACT</Button>
-              <Button color="inherit" onClick={handleCVButton}>
+            <Box sx={{ display: "flex", gap: 4 }}>
+              <Link
+                href="/"
+                sx={{ fontSize: 16, mt: 1 }}
+                underline="none"
+                color="inherit"
+              >
+                HOME
+              </Link>
+              <Link
+                href="#about"
+                sx={{ fontSize: 16, mt: 1 }}
+                underline="none"
+                color="inherit"
+              >
+                ABOUT
+              </Link>
+              <Link
+                href="#projects"
+                sx={{ fontSize: 16, mt: 1 }}
+                underline="none"
+                color="inherit"
+              >
+                PROJECTS
+              </Link>
+              <Link
+                href="#projects"
+                sx={{ fontSize: 16, mt: 1 }}
+                underline="none"
+                color="inherit"
+              >
+                PROJECTS
+              </Link>
+              <Link
+                href="#contact"
+                sx={{ fontSize: 16, mt: 1 }}
+                underline="none"
+                color="inherit"
+                onClick={handleCVButton}
+              >
                 CV
-              </Button>
-            </>
+              </Link>
+            </Box>
           )}
         </Toolbar>
         {openMobileMenu && (
@@ -90,12 +124,12 @@ export default function ResponsiveAppBar() {
               PROJECTS
             </Link>
             <Link
-              href="#contact"
-              sx={{ fontSize: 16, my: 1 }}
+              href="#projects"
+              sx={{ fontSize: 16, mt: 1 }}
               underline="none"
               color="inherit"
             >
-              CONTACT
+              PROJECTS
             </Link>
             <Link
               href="#contact"

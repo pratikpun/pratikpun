@@ -123,9 +123,10 @@ const Contact = () => {
   };
   return (
     <>
-      <Box id="contact" sx={{ textAlign: "center" }}>
+      <Box id="contact" sx={{ textAlign: "center", mt: 5 }}>
         <Typography
           variant="h4"
+          color="secondary"
           sx={{
             fontWeight: "bold",
           }}
