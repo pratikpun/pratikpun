@@ -5,13 +5,14 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { useMediaQuery, useTheme } from "@mui/material";
 import data from "../JSONcontents/skills.json";
+import SkillTag from "./SkillTag";
 
 export default function SkillsCard() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isIPad = useMediaQuery(theme.breakpoints.between("sm", "md"));
   const skills = data.skills;
-  console.log(skills);
+  console.log(skills[0]);
 
   const FrontEndCard = (
     <>
@@ -26,6 +27,8 @@ export default function SkillsCard() {
               HTML
             </Paper>
           </Grid>
+          {/* {<SkillTag skill={skills[0]} />} */}
+
           <Grid item xl={4} md={4} xs={6}>
             <Paper elevation={2} sx={{ textAlign: "center", padding: 1 }}>
               CSS

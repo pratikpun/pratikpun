@@ -91,13 +91,13 @@ const Contact = () => {
       const templateID = `${process.env.REACT_APP_EMAIL_TEMPLATE_ID}`;
       const publicKey = `${process.env.REACT_APP_EMAIL_PUBLIC_KEY}`;
       emailjs
-        .sendForm(
-          "service_1uqfou5",
-          "template_7mid9ow",
-          form.current,
-          "SAmftEg1acbfW7zAc"
-        )
-        // .sendForm(serviceID, templateID, form.current, publicKey)
+        //.sendForm(
+        //   "service_1uqfou5",
+        //   "template_7mid9ow",
+        //   form.current,
+        //   "SAmftEg1acbfW7zAc"
+        // )
+        .sendForm(serviceID, templateID, form.current, publicKey)
         .then(
           (result) => {
             if (result.text === "OK") {
