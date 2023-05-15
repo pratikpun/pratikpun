@@ -22,6 +22,7 @@ A form to reach out to me via email.
 - CSS
 - JavaScript
 - React
+- Email
 
 #### - Back End
 

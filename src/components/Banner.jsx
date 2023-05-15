@@ -1,7 +1,6 @@
 import { Box, Link, Typography, useMediaQuery, useTheme } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import EmailIcon from "@mui/icons-material/Email";
 
 import Avatar from "@mui/material/Avatar";
 import React from "react";
@@ -91,9 +90,8 @@ const Banner = () => {
             >
               <GitHubIcon
                 sx={{
-                  "&:hover": { transform: "scale(1.25)", color: "white" },
+                  "&:hover": { transform: "scale(1.25)" },
                   fontSize: 34,
-                  color: "black",
                 }}
               />
             </Link>
@@ -103,9 +101,8 @@ const Banner = () => {
             >
               <LinkedInIcon
                 sx={{
-                  "&:hover": { transform: "scale(1.25)", color: "white" },
+                  "&:hover": { transform: "scale(1.25)" },
                   fontSize: 36,
-                  color: "black",
                 }}
               />
             </Link>
